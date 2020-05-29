@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="articleText" id="articleText">
+        <h2>Удаление данных. Команда DELETE</h2>
+        
+        <p>Команда <span class="b">DELETE</span> удаляет данные из БД. Она имеет следующий формальный синтаксис:</p>
+        <div><div id="highlighter_988889" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">DELETE</code> <code class="sql keyword">FROM</code> <code class="sql plain">имя_таблицы</code></div><div class="line number2 index1 alt1"><code class="sql plain">[</code><code class="sql keyword">WHERE</code> <code class="sql plain">условие_удаления]</code></div></div></td></tr></tbody></table></div></div>
+        <p>Например, удалим строки, у которых производитель - Huawei:</p>
+        <div><div id="highlighter_159460" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">DELETE</code> <code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer=</code><code class="sql string">'Huawei'</code><code class="sql plain">;</code></div></div></td></tr></tbody></table></div></div>
+        <img src="pics/3.14.png" alt="Команда DELETE в MySQL">
+        <p>Или удалим все товары, производителем которых является Apple и которые имеют цену меньше 60000:</p>
+        <div><div id="highlighter_918422" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">DELETE</code> <code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer=</code><code class="sql string">'Apple'</code> <code class="sql color1">AND</code> <code class="sql plain">Price &lt; 60000;</code></div></div></td></tr></tbody></table></div></div>
+        <p>Если необходимо вовсе удалить все строки вне зависимости от условия, то условие можно не указывать:</p>
+        <div><div id="highlighter_181795" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">DELETE</code> <code class="sql keyword">FROM</code> <code class="sql plain">Products;</code></div></div></td></tr></tbody></table></div></div>
+  
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="articleText" id="articleText">
+        <h2>Типы данных T-SQL</h2>
+        <p>При создании таблицы для всех ее столбцов необходимо указать определенный тип данных. Тип данных определяет, какие значения могут храниться в столбце, 
+        сколько они будут занимать места в памяти.</p>
+        <p>Язык T-SQL предоставляет множество различных типов. В зависимости от характера значений все их можно разделить на группы.</p>
+        <h4>Числовые типы данных</h4>
+        <ul>
+        <li><p><span class="b">BIT</span>: хранит значение 0 или 1. Фактически является аналогом булевого типа в языках программирования. Занимает 1 байт.</p></li>
+        <li><p><span class="b">TINYINT</span>: хранит числа от 0 до 255. Занимает 1 байт. Хорошо подходит для хранения небольших чисел.</p></li>
+        <li><p><span class="b">SMALLINT</span>: хранит числа от –32 768 до 32 767. Занимает 2 байта</p></li>
+        <li><p><span class="b">INT</span>: хранит числа от –2 147 483 648 до 2 147 483 647. Занимает 4 байта. Наиболее используемый тип для хранения чисел.</p></li>
+        <li><p><span class="b">BIGINT</span>: хранит очень большие числа от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 807, которые 
+        занимают в памяти 8 байт.</p></li>
+        <li><p><span class="b">DECIMAL</span>: хранит числа c фиксированной точностью. 
+        Занимает от 5 до 17 байт в зависимости от количества чисел после запятой.</p>
+        <p>Данный тип может принимать два параметра precision и scale: <code>DECIMAL(precision, scale)</code>.</p>
+        <p>Параметр precision представляет максимальное количество цифр, которые может хранить число. 
+        Это значение должно находиться в диапазоне от 1 до 38. По умолчанию оно равно 18.</p>
+        <p>Параметр scale представляет максимальное количество цифр, которые может содержать число после запятой. 
+        Это значение должно находиться в диапазоне от 0 до значения параметра precision. По умолчанию оно равно 0.</p>
+        </li>
+        <li><p><span class="b">NUMERIC</span>: данный тип аналогичен типу DECIMAL.</p></li>
+        <li><p><span class="b">SMALLMONEY</span>: хранит дробные значения от -214 748.3648 до 214 748.3647. Предназначено для хранения денежных величин. 
+        Занимает 4 байта. Эквивалентен типу <code>DECIMAL(10,4)</code>.</p></li>
+        <li><p><span class="b">MONEY</span>: хранит дробные значения от -922 337 203 685 477.5808 до 922 337 203 685 477.5807. Представляет денежные величины 
+        и занимает 8 байт. Эквивалентен типу <code>DECIMAL(19,4)</code>.</p></li>
+        <li><p><span class="b">FLOAT</span>: хранит числа от –1.79E+308 до 1.79E+308. 
+        Занимает от 4 до 8 байт в зависимости от дробной части.</p>
+        <p>Может иметь форму опредеения в виде <code>FLOAT(n)</code>, где n представляет число бит, которые используются для хранения десятичной части числа (мантиссы). 
+        По умолчанию n = 53.</p></li>
+        <li><p><span class="b">REAL</span>: хранит числа от –340E+38 to 3.40E+38. Занимает 4 байта. Эквивалентен типу <code>FLOAT(24)</code>.</p></li>
+        </ul>
+        <p></p>Примеры числовых столбцов:<p></p>
+        <div><div id="highlighter_834053" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql plain">Salary MONEY,</code></div><div class="line number2 index1 alt1"><code class="sql plain">TotalWeight </code><code class="sql keyword">DECIMAL</code><code class="sql plain">(9,2),</code></div><div class="line number3 index2 alt2"><code class="sql plain">Age </code><code class="sql keyword">INT</code><code class="sql plain">,</code></div><div class="line number4 index3 alt1"><code class="sql plain">Surplus </code><code class="sql keyword">FLOAT</code></div></div></td></tr></tbody></table></div></div>
+        <h4>Типы данных, представляющие дату и время</h4>
+        <ul>
+        <li><p><span class="b">DATE</span>: хранит даты от 0001-01-01 (1 января 0001 года) до 9999-12-31 (31 декабря 9999 года). Занимает 3 байта.</p></li>
+        <li><p><span class="b">TIME</span>: хранит время в диапазоне от 00:00:00.0000000 до 23:59:59.9999999. Занимает от 3 до 5 байт.</p>
+        <p>Может иметь форму <code>TIME(n)</code>, где n представляет количество цифр от 0 до 7 в дробной части секунд.</p></li>
+        <li><p><span class="b">DATETIME</span>: хранит даты и время от 01/01/1753 до 31/12/9999. Занимает 8 байт.</p></li>
+        <li><p><span class="b">DATETIME2</span>: хранит даты и время в диапазоне от 01/01/0001 00:00:00.0000000 до 31/12/9999 23:59:59.9999999. Занимает от 6 до 8 байт в 
+        зависимости от точности времени.</p>
+        <p>Может иметь форму <code>DATETIME2(n)</code>, где n представляет количество цифр от 0 до 7 в дробной части секунд.</p></li>
+        <li><p><span class="b">SMALLDATETIME</span>: хранит даты и время в диапазоне от 01/01/1900 до 06/06/2079, то есть ближайшие даты. 
+        Занимает от 4 байта.</p></li>
+        <li><p><span class="b">DATETIMEOFFSET</span>: хранит даты и время в диапазоне от 0001-01-01 до 9999-12-31. Сохраняет детальную 
+        информацию о времени с точностью до 100 наносекунд. Занимает 10 байт.</p></li>
+        </ul>
+        <p>Распространенные форматы дат:</p>
+        <ul>
+        <li><p><code>yyyy-mm-dd</code> - <code>2017-07-12</code></p></li>
+        <li><p><code>dd/mm/yyyy</code> - <code>12/07/2017</code></p></li>
+        <li><p><code>mm-dd-yy</code> - <code>07-12-17</code></p>
+        <p>В таком формате двузначные числа от 00 до 49 воспринимаются как даты в диапазоне 2000-2049. А числа от 50 до 99 как диапазон чисел 1950 - 1999.</p></li>
+        <li><p><code>Month dd, yyyy</code> - <code>July 12, 2017</code></p></li>
+        </ul>
+        <p>Распространенные форматы времени:</p>
+        <ul>
+        <li><p><code>hh:mi</code> - <code>13:21</code></p></li>
+        <li><p><code>hh:mi am/pm</code> - <code>1:21 pm</code></p></li>
+        <li><p><code>hh:mi:ss</code> - <code>1:21:34</code></p></li>
+        <li><p><code>hh:mi:ss:mmm</code> - <code>1:21:34:12</code></p></li>
+        <li><p><code>hh:mi:ss:nnnnnnn</code> - <code>1:21:34:1234567</code></p></li>
+        </ul>
+        <h4>Строковые типы данных</h4>
+        <ul>
+        <li><p><span class="b">CHAR</span>: хранит строку длиной от 1 до 8 000 символов. На каждый символ выделяет по 1 байту. 
+        Не подходит для многих языков, так как хранит символы не в кодировке Unicode.</p>
+        <p>Количество символов, которое может хранить столбец, передается в скобках. Например, для столбца с типом <code>CHAR(10)</code> будет выделено 10 байт. И если мы сохраним в столбце строку менее 10 символов, то она будет дополнена пробелами.</p></li>
+        <li><p><span class="b">VARCHAR</span>: хранит строку. На каждый символ выделяется 1 байт. Можно указать конкретную длину для столбца - 
+        от 1 до 8 000 символов, например, <code>VARCHAR(10)</code>. 
+        Если строка должна иметь больше 8000 символов, то задается размер MAX, а на хранение строки может выделяться до 
+        2 Гб: <code>VARCHAR(MAX)</code>.</p>
+        <p>Не подходит для многих языков, так как хранит символы не в кодировке Unicode.</p>
+        <p>В отличие от типа CHAR если в столбец с типом <code>VARCHAR(10)</code> будет сохранена строка в 5 символов, то в столце будет сохранено именно пять символов.</p></li>
+        <li><p><span class="b">NCHAR</span>: хранит строку в кодировке Unicode длиной от 1 до 4 000 символов. На каждый символ выделяется 2 байта. Например, <code>NCHAR(15)</code></p></li>
+        <li><p><span class="b">NVARCHAR</span>: хранит строку в кодировке Unicode. На каждый символ выделяется 2 байта.Можно задать конкретный размер от 1 до 4 000 символов: <code></code>.  
+        Если строка должна иметь больше 4000 символов, то задается размер MAX, а на хранение строки может выделяться до 
+        2 Гб.</p></li>
+        </ul>
+        <p>Еще два типа <span class="b">TEXT</span> и <span class="b">NTEXT</span> являются устаревшими и поэтому их не рекомендуется использовать. Вместо 
+        них применяются VARCHAR и NVARCHAR соответственно.</p>
+        <p>Примеры определения строковых столбцов:</p>
+        <div><div id="highlighter_205586" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code class="sql plain">(30),</code></div><div class="line number2 index1 alt1"><code class="sql plain">Comment NVARCHAR(</code><code class="sql keyword">MAX</code><code class="sql plain">)</code></div></div></td></tr></tbody></table></div></div>
+        <h4>Бинарные типы данных</h4>
+        <ul>
+        <li><p><span class="b">BINARY</span>: хранит бинарные данные в виде последовательности от 1 до 8 000 байт.</p></li>
+        <li><p><span class="b">VARBINARY</span>: хранит бинарные данные в виде последовательности от 1 до 8 000 байт, либо до 2^31–1 байт при использовании 
+        значения MAX (VARBINARY(MAX)).</p></li>
+        </ul>
+        <p>Еще один бинарный тип - тип IMAGE является устаревшим, и вместо него рекомендуется применять тип VARBINARY.</p>
+        <h4>Остальные типы данных</h4>
+        <ul>
+        <li><p><span class="b">UNIQUEIDENTIFIER</span>: уникальный идентификатор GUID (по сути строка с уникальным значением), который занимает 16 байт.</p></li>
+        <li><p><span class="b">TIMESTAMP</span>: некоторое число, которое хранит номер версии строки в таблице. 
+        Занимает 8 байт.</p></li>
+        <li><p><span class="b">CURSOR</span>: представляет набор строк.</p></li>
+        <li><p><span class="b">HIERARCHYID</span>: представляет позицию в иерархии.</p></li>
+        <li><p><span class="b">SQL_VARIANT</span>: может хранить данные любого другого типа данных T-SQL.</p></li>
+        <li><p><span class="b">XML</span>: хранит документы XML или фрагменты документов XML. Занимает в памяти до 2 Гб.</p></li>
+        <li><p><span class="b">TABLE</span>: представляет определение таблицы.</p>
+        </li>
+        <li><p><span class="b">GEOGRAPHY</span>: хранит географические данные, такие как широта и долгота.</p></li>
+        <li><p><span class="b">GEOMETRY</span>: хранит координаты местонахождения на плоскости.</p></li>
+        </ul>
+        
+</body>
+
+</html>

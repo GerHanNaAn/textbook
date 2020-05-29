@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Атрибуты и ограничения столбцов и таблиц</h2>
+    <p>При создании столбцов в T-SQL мы можем использовать ряд атрибутов, ряд которых являются ограничениями. Рассмотрим
+        эти атрибуты.</p>
+    <h3>PRIMARY KEY</h3>
+    <p>С помощью выражения <span class="b">PRIMARY KEY</span> столбец можно сделать первичным ключом.</p>
+    <div>
+        <div id="highlighter_631717" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span></span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20),</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20),</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30),</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20)</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Первичный ключ уникально идентифицирует строку в таблице. В качестве первичного ключа необязательно должны
+        выступать столбцы с типом int, они могут представлять
+        любой другой тип.</p>
+    <p>Установка первичного ключа на уровне таблицы:</p>
+    <div>
+        <div id="highlighter_792228" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span></span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20),</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20),</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30),</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20),</code></div>
+                                <div class="line number9 index8 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code><code
+                                        class="sql plain">(Id)</code></div>
+                                <div class="line number10 index9 alt1"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Первичный ключ может быть составным (compound key). Такой ключ может потребоваться, если у нас сразу два столбца
+        должны уникально идентифицировать
+        строку в таблице. Например:</p>
+    <div>
+        <div id="highlighter_451890" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">OrderLines</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">OrderId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">ProductId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Quantity </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Price MONEY,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code><code
+                                        class="sql plain">(OrderId, ProductId)</code></div>
+                                <div class="line number8 index7 alt1"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Здесь поля OrderId и ProductId вместе выступают как составной первичный ключ. То есть в таблице OrderLines не
+        может быть двух строк, где для обоих из этих полей одновременно
+        были бы одни и те же значения.</p>
+    <h3>IDENTITY</h3>
+
+    <p>Атрибут <span class="b">IDENTITY</span> позволяет сделать столбец идентификатором. Этот атрибут может назначаться
+        для столбцов числовых типов
+        INT, SMALLINT, BIGINT, TYNIINT, DECIMAL и NUMERIC. При добавлении новых данных в таблицу SQL Server будет
+        инкрементировать на единицу
+        значение этого столбца у последней записи. Как правило, в роли идентификатора выступает тот же столбец, который
+        является первичным ключом, хотя в принципе это необязательно.</p>
+    <div>
+        <div id="highlighter_182387" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20),</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20),</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30),</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20)</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Также можно использовать полную форму атрибута:</p>
+    <div>
+        <div id="highlighter_591905" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code
+                                        class="sql plain">IDENTITY(seed, increment)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Здесь параметр seed указывает на начальное значение, с которого будет начинаться отсчет. А параметр increment
+        определяет,
+        насколько будет увеличиваться следующее значение. По умолчанию атрибут использует следующие значения:</p>
+    <div>
+        <div id="highlighter_989663" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql plain">IDENTITY(1, 1)</code>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p>То есть отсчет начинается с 1. А последующие значения увеличиваются на единицу. Но мы можем это поведение
+        переопределить. Например:</p>
+
+    <div>
+        <div id="highlighter_31751" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql plain">Id </code><code
+                                        class="sql keyword">INT</code> <code class="sql plain">IDENTITY (2, 3)</code>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>В данном случае отсчет начнется с 2, а значение каждой последующей записи будет увеличиваться на 3. То есть
+        первая строка будет иметь значение 2, вторая - 5, третья - 8 и т.д.</p>
+    <p>Также следует учитывать, что в таблице только один столбец должен иметь такой атрибут.</p>
+    <p>
+    </p>
+    <h3>UNIQUE</h3>
+    <p>Если мы хотим, чтобы столбец имел только уникальные значения, то для него можно определить атрибут <span
+            class="b">UNIQUE</span>.</p>
+    <div>
+        <div id="highlighter_522229" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20),</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20),</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">UNIQUE</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">UNIQUE</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>В данном случае столбцы, которые представляют электронный адрес и телефон, будут иметь уникальные значения. И мы
+        не сможем добавить в таблицу две строки, у которых
+        значения для этих столбцов будет совпадать.</p>
+    <p>Также мы можем определить этот атрибут на уровне таблицы:</p>
+    <div>
+        <div id="highlighter_297091" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20),</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20),</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30),</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20),</code></div>
+                                <div class="line number9 index8 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">UNIQUE</code><code class="sql plain">(Email, Phone)</code>
+                                </div>
+                                <div class="line number10 index9 alt1"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h3>NULL и NOT NULL</h3>
+    <p>Чтобы указать, может ли столбец принимать значение NULL, при определении столбца ему можно задать атрибут <span
+            class="b">NULL</span> или
+        <span class="b">NOT NULL</span>. Если этот атрибут явным образом не будет использован, то по умолчанию столбец
+        будет допускать значение NULL.
+        Исключением является тот случай, когда столбец выступает в роли первичного ключа - в этом случае по умолчанию
+        столбец имеет значение NOT NULL.</p>
+    <div>
+        <div id="highlighter_580260" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">UNIQUE</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">UNIQUE</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3>DEFAULT</h3>
+    <p>Атрибут <span class="b">DEFAULT</span> определяет значение по умолчанию для столбца. Если при добавлении данных
+        для столбца не будет предусмотрено значение, то для него будет
+        использоваться значение по умолчанию.</p>
+    <div>
+        <div id="highlighter_145372" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">DEFAULT</code> <code class="sql plain">18,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">UNIQUE</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">UNIQUE</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">);</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p>Здесь для столбца Age предусмотрено значение по умолчанию 18.</p>
+    <h3>CHECK</h3>
+    <p>Ключевое слово <span class="b">CHECK</span> задает ограничение для диапазона значений, которые могут храниться в
+        столбце. Для этого после слова CHECK
+        указывается в скобках условие, которому должен соответствовать столбец или несколько столбцов. Например, возраст
+        клиентов не может быть меньше 0 или больше 100:</p>
+    <div>
+        <div id="highlighter_621897" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">DEFAULT</code> <code class="sql plain">18 </code><code
+                                        class="sql keyword">CHECK</code><code class="sql plain">(Age &gt;0 </code><code
+                                        class="sql color1">AND</code> <code class="sql plain">Age &lt; 100),</code>
+                                </div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">UNIQUE</code> <code
+                                        class="sql keyword">CHECK</code><code class="sql plain">(Email !=</code><code
+                                        class="sql string">''</code><code class="sql plain">),</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">UNIQUE</code> <code
+                                        class="sql keyword">CHECK</code><code class="sql plain">(Phone !=</code><code
+                                        class="sql string">''</code><code class="sql plain">)</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">);</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Здесь также указывается, что столбцы Email и Phone не могут иметь пустую строку в качестве значения (пустая
+        строка <span class="b">не</span> эквивалентна значению NULL).</p>
+    <p>Для соединения условий используется ключевое слово <span class="b">AND</span>. Условия можно задать в виде
+        операций сравнения больше (&gt;), меньше (&lt;), не равно (!=).</p>
+
+    <p>Также с помощью CHECK можно создать ограничение в целом для таблицы:</p>
+
+    <div>
+        <div id="highlighter_754718" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">DEFAULT</code> <code class="sql plain">18,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">UNIQUE</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">UNIQUE</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number9 index8 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CHECK</code><code class="sql plain">((Age &gt;0 </code><code
+                                        class="sql color1">AND</code> <code class="sql plain">Age&lt;100) </code><code
+                                        class="sql color1">AND</code> <code class="sql plain">(Email !=</code><code
+                                        class="sql string">''</code><code class="sql plain">) </code><code
+                                        class="sql color1">AND</code> <code class="sql plain">(Phone !=</code><code
+                                        class="sql string">''</code><code class="sql plain">))</code></div>
+                                <div class="line number10 index9 alt1"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <h3>Оператор CONSTRAINT. Установка имени ограничений.</h3>
+    <p>С помощью ключевого слова <span class="b">CONSTRAINT</span> можно задать имя для ограничений. В качестве
+        ограничений могут использоваться
+        PRIMARY KEY, UNIQUE, DEFAULT, CHECK.</p>
+    <p>Имена ограничений можно задать на уровне столбцов. Они указываются после CONSTRAINT перед атрибутами:</p>
+    <div>
+        <div id="highlighter_994750" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                            <div class="line number11 index10 alt2">11</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">PK_Customer_Id </code><code class="sql keyword">PRIMARY</code>
+                                    <code class="sql keyword">KEY</code> <code class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">DF_Customer_Age </code><code
+                                        class="sql keyword">DEFAULT</code> <code class="sql plain">18 </code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">CK_Customer_Age </code><code
+                                        class="sql keyword">CHECK</code><code class="sql plain">(Age &gt;0 </code><code
+                                        class="sql color1">AND</code> <code class="sql plain">Age &lt; 100),</code>
+                                </div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number9 index8 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">UQ_Customer_Email </code><code
+                                        class="sql keyword">UNIQUE</code><code class="sql plain">,</code></div>
+                                <div class="line number10 index9 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">UQ_Customer_Phone </code><code
+                                        class="sql keyword">UNIQUE</code></div>
+                                <div class="line number11 index10 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Ограничения могут носить произвольные названия, но, как правило, для применяются следующие префиксы:</p>
+    <ul>
+        <li>
+            <p>"PK_" - для PRIMARY KEY</p>
+            <p></p>
+        </li>
+        <li>
+            <p>"FK_" - для FOREIGN KEY</p>
+            <p></p>
+        </li>
+        <li>
+            <p>"CK_" - для CHECK</p>
+            <p></p>
+        </li>
+        <li>
+            <p>"UQ_" - для UNIQUE</p>
+            <p></p>
+        </li>
+        <li>
+            <p>"DF_" - для DEFAULT</p>
+            <p></p>
+        </li>
+    </ul>
+    <p>В принципе необязательно задавать имена ограничений, при установке соответствующих атрибутов SQL Server
+        автоматически определяет их имена.
+        Но, зная имя ограничения, мы можем к нему обращаться, например, для его удаления.</p>
+    <p>И также можно задать все имена ограничений через атрибуты таблицы:</p>
+    <div>
+        <div id="highlighter_756503" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span> </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                            <div class="line number11 index10 alt2">11</div>
+                            <div class="line number12 index11 alt1">12</div>
+                            <div class="line number13 index12 alt2">13</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">DF_Customer_Age </code><code
+                                        class="sql keyword">DEFAULT</code> <code class="sql plain">18, </code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30),</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20),</code></div>
+                                <div class="line number9 index8 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">PK_Customer_Id </code><code class="sql keyword">PRIMARY</code>
+                                    <code class="sql keyword">KEY</code> <code class="sql plain">(Id), </code></div>
+                                <div class="line number10 index9 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">CK_Customer_Age </code><code
+                                        class="sql keyword">CHECK</code><code class="sql plain">(Age &gt;0 </code><code
+                                        class="sql color1">AND</code> <code class="sql plain">Age &lt; 100),</code>
+                                </div>
+                                <div class="line number11 index10 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">UQ_Customer_Email </code><code
+                                        class="sql keyword">UNIQUE</code> <code class="sql plain">(Email),</code></div>
+                                <div class="line number12 index11 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">UQ_Customer_Phone </code><code
+                                        class="sql keyword">UNIQUE</code> <code class="sql plain">(Phone)</code></div>
+                                <div class="line number13 index12 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+*{
+	margin: 0 auto;
+	padding: 0 auto;
+    font-family:fantasy;
+    color: #373c50;
+    -webkit-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+H1{
+    margin-left: 173px;
+}
+body{
+	
+	max-width: 1300px;
+	min-width:600px;
+    min-height: 100%;
+	background: #e2dbdb;
+	background-repeat: no-repeat;
+    background-size: 570px;
+}
+.window{
+    padding: 15px;
+	margin: 250px auto;
+    left: 14.5%;
+	border: 5px dashed rgb(95, 71, 59);
+	border-radius: 90px;
+	width: 560px;
+	background-color: rgba(236, 235, 242, 0.73);
+}
+.Autorization{
+    margin-top: 20px;
+    height: 150px;
+    display: grid;
+}
+input[type="submit"]{
+    padding: 5px;
+    font-family: "Roboto", sans-serif, Helvetica, Arial;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14pt;
+    color: rgb(211, 195, 186);
+    width: 170px;
+    margin: 10px auto;
+    background: rgb(4, 52, 65);
+}
+#exit{
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+}
+#exit:hover{
+    color:#7bb6f2;
+}

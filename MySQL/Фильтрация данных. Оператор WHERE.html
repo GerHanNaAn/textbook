@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="articleText" id="articleText">
+        <h2>Фильтрация данных. Оператор WHERE</h2>
+        
+        <p>Зачастую необходимо извлекать не все данные из БД, а только те, которые соответствуют определенному условию. Для фильтрации данных в команде 
+        SELECT применяется оператор <span class="b">WHERE</span>, после которого указывается условие:</p>
+        <div><div id="highlighter_981173" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">WHERE</code> <code class="sql plain">условие</code></div></div></td></tr></tbody></table></div></div>
+        <p>Если условие истинно, то строка попадает в результирующую выборку. В качестве можно использовать операции сравнения, которые сравнивают два выражения:</p>
+        <ul>
+        <li><p><span class="b">=</span>: сравнение на равенство</p></li>
+        <li><p><span class="b">!=</span>: сравнение на равенство</p></li>
+        <li><p><span class="b">&lt;&gt;</span>: сравнение на неравенство</p></li>
+        <li><p><span class="b">&lt;</span>: меньше чем</p></li>
+        <li><p><span class="b">&gt;</span>: больше чем</p></li>
+        <li><p><span class="b">&lt;=</span>: меньше чем или равно</p></li>
+        <li><p><span class="b">&gt;=</span>: больше чем или равно</p></li>
+        </ul>
+        <p>К примеру, выберем всех товары, производителем которых является компания Samsung:</p>
+        <div><div id="highlighter_668307" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung'</code><code class="sql plain">;</code></div></div></td></tr></tbody></table></div></div>
+        <img src="pics/3.5.png" alt="Оператор WHERE в MySQL">
+        <p>Стоит отметить, что для MySQL не важен регистр символов, и, к примеру, строка "Samsung" будет эквивалентна строке "SAMSUNG" или "sumSunG".</p>
+        <p>Другой пример - найдем все товары, количество которых меньше 3:</p>
+        <div><div id="highlighter_962617" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">ProductCount &lt; 3;</code></div></div></td></tr></tbody></table></div></div>
+        <p>Критерий фильтрации может представлять и более сложное составное выражение. Например, найдем все товары, у которых совокупная стоимость больше 
+        100 000:</p>
+        <div><div id="highlighter_501296" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Price * ProductCount &gt; 100000;</code></div></div></td></tr></tbody></table></div></div>
+        <img src="pics/3.6.png" alt="Фильтрация данных с помощью WHERE в MySQL">
+        <h3>Логические операторы</h3>
+        <p>Логические операторы позволяют объединить несколько условий. В MySQL можно использовать следующие логические операторы:</p>
+        <ul>
+        <li><p><span class="b">AND</span>: операция логического И. Она объединяет два выражения:</p>
+        <div><div id="highlighter_108760" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql plain">выражение1 </code><code class="sql color1">AND</code> <code class="sql plain">выражение2</code></div></div></td></tr></tbody></table></div></div>
+        <p>Только если оба этих выражения одновременно истинны, то и общее условие оператора AND также будет истинно. То есть если и первое условие истинно, и второе.</p></li>
+        <li><p><span class="b">OR</span>: операция логического ИЛИ. Она также объединяет два выражения:</p>
+        <div><div id="highlighter_167000" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql plain">выражение1 </code><code class="sql color1">OR</code> <code class="sql plain">выражение2</code></div></div></td></tr></tbody></table></div></div>
+        <p>Если хотя бы одно из этих выражений истинно, то общее условие оператора OR также будет истинно. То есть если или первое условие истинно, или второе.</p></li>
+        <li><p><span class="b">NOT</span>: операция логического отрицания. Если выражение в этой операции ложно, то общее условие истинно.</p>
+        <div><div id="highlighter_870083" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql color1">NOT</code> <code class="sql plain">выражение</code></div></div></td></tr></tbody></table></div></div>
+        </li>
+        </ul>
+        <p>Например, выберем все товары, у которых производитель Samsung и одновременно цена больше 50000:</p>
+        <div><div id="highlighter_618799" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung'</code> <code class="sql color1">AND</code> <code class="sql plain">Price &gt; 50000</code></div></div></td></tr></tbody></table></div></div>
+        <img src="pics/3.7.png" alt="Логические операторы в MySQL">
+        <p>Теперь изменим оператор на <span class="b">OR</span>. То есть выберем все товары, у которых либо производитель Samsung, либо цена больше 50000:</p>
+        <div><div id="highlighter_87938" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung'</code> <code class="sql color1">OR</code> <code class="sql plain">Price &gt; 50000</code></div></div></td></tr></tbody></table></div></div>
+        <img src="pics/3.8.png" alt="Операторы AND и OR в MySQL">
+        <p>Применение оператора <span class="b">NOT</span> - выберем все товары, у которых производитель не Samsung:</p>
+        <div><div id="highlighter_918772" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql color1">NOT</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung'</code><code class="sql plain">;</code></div></div></td></tr></tbody></table></div></div>
+        <img src="pics/3.9.png" alt="Оператор NOT в MySQL">
+        <h3>Приоритет операций</h3>
+        <p>В одном условии при необходимости мы можем объединять несколько логических операций. Однако следует учитывать, что самой приоритетной операцией, 
+        которая выполняется в первую очередь, является NOT, менее приоритетная - AND и операция с наименьшим приоритетом - OR. 
+        Например:</p>
+        <div><div id="highlighter_879764" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer =</code><code class="sql string">'Samsung'</code> <code class="sql color1">OR</code> <code class="sql color1">NOT</code> <code class="sql plain">Price &gt; 30000 </code><code class="sql color1">AND</code> <code class="sql plain">ProductCount &gt; 2;</code></div></div></td></tr></tbody></table></div></div>
+        <p>В данном случае сначала вычисляется выражение <code>NOT Price &gt; 30000</code>, то есть цена должна быть меньше или равна 30000.</p>
+        <p>Затем вычисляется выражение <code>NOT Price &gt; 30000 AND ProductCount &gt; 2</code>, то есть цена должна быть меньше или равна 30000 и одновременно 
+        количество товаров должно быть больше 2.</p>
+        <p>В конце вычисляется оператор OR - либо цена должна быть меньше или равна 30000 и одновременно количество товаров должно быть больше 2, либо производителем должен быть Samsung.</p>
+        <img src="pics/3.10.png" alt="Приоритет логических операций в MySQL">
+        <p>С помощью скобок можно переопределить приоритет операций:</p>
+        <div><div id="highlighter_514080" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">SELECT</code> <code class="sql plain">* </code><code class="sql keyword">FROM</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer =</code><code class="sql string">'Samsung'</code> <code class="sql color1">OR</code> <code class="sql color1">NOT</code> <code class="sql plain">(Price &gt; 30000 </code><code class="sql color1">AND</code> <code class="sql plain">ProductCount &gt; 2);</code></div></div></td></tr></tbody></table></div></div>
+        <p>В данном случае находим товары, у которых либо производитель Samsung, либо одновременно цена товара меньше или равна 30000 и количество товаров меньше 3.</p>
+        <img src="pics/3.11.png" alt="логические операции AND, OR, NOT в MySQL">
+   
+
+</body>
+</html>

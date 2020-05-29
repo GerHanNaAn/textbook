@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Установка SQL Server Management Studio</h2>
+    <p>Для удобного управления базами данных и различными опциями и настройками в MS SQL Server установим специальное
+        средство администрирования, которое называется
+        <span class="b">SQL Server Management Studio</span> (SSMS). Данную программу можно использовать для создания баз
+        данных и их таблиц, написания и выполнения запросов к бд, а также для много другого.</p>
+    <p>Чтобы установить SSMS, перейдем на страницу <a
+            href="https://docs.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms"
+            rel="nofollow">https://docs.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms</a>.
+        Ближе к низу станицы найдем ссылки на версии для различных локалей. Загрузим версию для английского языка (либо
+        при желании можно выбрать локализованную версию на любом другом языке):</p>
+    <img src="pics/10.png" alt="Загрузка SQL Server Management Studio">
+    <p>Несмотря на то, что эта версия SSMS имеет номер 17, она подходит и к MS SQL Server 2016 и даже к более ранним
+        версиям сервера.</p>
+    <p>После загрузки запустим программу установки SSMS:</p>
+
+    <img src="pics/11.png" alt="Установка SQL Server Management Studio">
+
+    <p>Для установки нажмем на кнопку Install.</p>
+    <p>После установки найдем SQL Server Management Studio в меню Пуск среди установленных программ в подпункте <span
+            class="b">Microsoft SQL Server Tools 2017</span>:</p>
+    <img src="pics/12.png" alt="Запуск SQL Server Management Studio">
+    <p>Итак, запустим программу. Вначале нам будет предложено подключиться к нужному серверу.</p>
+    <img src="pics/14.png" alt="Подключение в Server Management Studio">
+    <p>В поле "Server name" выберем в выпадающем списке "Browse for more...". И нам откроется окно, где необходимо будет
+        выбрать нужный сервер:</p>
+    <img src="pics/15.png">
+    <p>В моем случае на локальном компьютере установлено два сервера выпуск Express и выпуск Developer. Но по имени я
+        могу понять, что первый элемент представляет Express, и соответственно мне надо выбрать
+        второй элемент. Если на локальном компьютере установлен только один выпуск, то соответственно выбирать не
+        придется.</p>
+    <p>После выбора сервера его название отобразится в поле "Server name". И далее для подключения к нему необходимо
+        будет нажать на кнопку Connect:</p>
+    <img src="pics/16.png" alt="Подключение к MS SQL Server">
+
+    <p>И после успешного подключения программа откроет содержимое сервера - все его базы данных и другие компоненты:</p>
+    <img src="pics/17.png" alt="MS SQL Server 2016 в Management Studio">
+
+
+
+
+</body>
+
+</html>

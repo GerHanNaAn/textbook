@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Внешние ключи</h2>
+    <p>Внешние ключи применяются для установки связи между таблицами. Внешний ключ устанавливается для столбцов из
+        зависимой, подчиненной таблицы, и
+        указывает на один из столбцов из главной таблицы. Хотя, как правило, внешний ключ указывает на первичный ключ из
+        связанной главной таблицы, но это необязательно должно быть непременным условием. Внешний ключ также может
+        указывать на какой-то другой столбец,
+        который имеет уникальное значение.</p>
+    <p>Общий синтаксис установки внешнего ключа на уровне таблицы:</p>
+
+    <div>
+        <div id="highlighter_932872" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql plain">[</code><code
+                                        class="sql keyword">FOREIGN</code> <code class="sql keyword">KEY</code><code
+                                        class="sql plain">] </code><code class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">главная_таблица (столбец_главной_таблицы)</code></div>
+                                <div class="line number2 index1 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">[</code><code class="sql keyword">ON</code> <code
+                                        class="sql keyword">DELETE</code> <code class="sql plain">{</code><code
+                                        class="sql keyword">CASCADE</code><code class="sql plain">|</code><code
+                                        class="sql keyword">NO</code> <code class="sql keyword">ACTION</code><code
+                                        class="sql plain">}]</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">[</code><code class="sql keyword">ON</code> <code
+                                        class="sql keyword">UPDATE</code> <code class="sql plain">{</code><code
+                                        class="sql keyword">CASCADE</code><code class="sql plain">|</code><code
+                                        class="sql keyword">NO</code> <code class="sql keyword">ACTION</code><code
+                                        class="sql plain">}]</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Для создания ограничения внешнего ключа на уровне столбца после ключевого слова
+        <span class="b">REFERENCES</span> указывается имя связанной таблицы и в круглых скобках имя связанного столбца,
+        на который будет указывать внешний ключ.
+        Также обычно добавляются ключевые слова <span class="b">FOREIGN KEY</span>, но в принципе их необязательно
+        указывать. После выражения REFERENCES идет выражение <span class="b">ON DELETE</span> и <span class="b">ON
+            UPDATE</span>.</p>
+
+    <p>Общий синтаксис установки внешнего ключа на уровне таблицы:</p>
+
+    <div>
+        <div id="highlighter_65526" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">FOREIGN</code> <code
+                                        class="sql keyword">KEY</code> <code
+                                        class="sql plain">(стобец1, столбец2, ... столбецN) </code></div>
+                                <div class="line number2 index1 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">главная_таблица (столбец_главной_таблицы1, столбец_главной_таблицы2, ... столбец_главной_таблицыN)</code>
+                                </div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">[</code><code class="sql keyword">ON</code> <code
+                                        class="sql keyword">DELETE</code> <code class="sql plain">{</code><code
+                                        class="sql keyword">CASCADE</code><code class="sql plain">|</code><code
+                                        class="sql keyword">NO</code> <code class="sql keyword">ACTION</code><code
+                                        class="sql plain">}]</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">[</code><code class="sql keyword">ON</code> <code
+                                        class="sql keyword">UPDATE</code> <code class="sql plain">{</code><code
+                                        class="sql keyword">CASCADE</code><code class="sql plain">|</code><code
+                                        class="sql keyword">NO</code> <code class="sql keyword">ACTION</code><code
+                                        class="sql plain">}]</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p>Например, определим две таблицы и свяжем их посредством внешнего ключа:</p>
+
+    <div>
+        <div id="highlighter_445044" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                            <div class="line number11 index10 alt2">11</div>
+                            <div class="line number12 index11 alt1">12</div>
+                            <div class="line number13 index12 alt2">13</div>
+                            <div class="line number14 index13 alt1">14</div>
+                            <div class="line number15 index14 alt2">15</div>
+                            <div class="line number16 index15 alt1">16</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Customers</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Age </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">DEFAULT</code> <code class="sql plain">18, </code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">FirstName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">LastName NVARCHAR(20) </code><code
+                                        class="sql color1">NOT</code> <code class="sql color1">NULL</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number7 index6 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Email </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(30) </code><code class="sql keyword">UNIQUE</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number8 index7 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Phone </code><code class="sql keyword">VARCHAR</code><code
+                                        class="sql plain">(20) </code><code class="sql keyword">UNIQUE</code></div>
+                                <div class="line number9 index8 alt2"><code class="sql plain">);</code></div>
+                                <div class="line number10 index9 alt1">&nbsp;</div>
+                                <div class="line number11 index10 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Orders</code></div>
+                                <div class="line number12 index11 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number13 index12 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number14 index13 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CustomerId </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">Customers (Id),</code></div>
+                                <div class="line number15 index14 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CreatedAt </code><code class="sql keyword">Date</code></div>
+                                <div class="line number16 index15 alt1"><code class="sql plain">);</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>Здесь определены таблицы Customers и Orders. Customers является главной и представляет клиента.
+        Orders является зависимой и представляет заказ, сделанный клиентом. Эта таблица через столбец CustomerId связана
+        с таблицей Customers и ее столбцом Id.
+        То есть столбец CustomerId является внешним ключом, который указывает на столбец Id из таблицы Customers.</p>
+    <p>Определение внешнего ключа на уровне таблицы выглядело бы следующим образом:</p>
+    <div>
+        <div id="highlighter_849341" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Orders</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CustomerId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CreatedAt </code><code class="sql keyword">Date</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">FOREIGN</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">(CustomerId)&nbsp; </code><code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">Customers (Id)</code></div>
+                                <div class="line number7 index6 alt2"><code class="sql plain">);</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p>С помощью оператора <span class="b">CONSTRAINT</span> можно задать имя для ограничения внешнего ключа. Обычно это
+        имя начинается с префикса
+        "FK_":</p>
+    <div>
+        <div id="highlighter_957292" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Orders</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CustomerId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CreatedAt </code><code class="sql keyword">Date</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">CONSTRAINT</code> <code
+                                        class="sql plain">FK_Orders_To_Customers </code><code
+                                        class="sql keyword">FOREIGN</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">(CustomerId)&nbsp; </code><code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">Customers (Id)</code></div>
+                                <div class="line number7 index6 alt2"><code class="sql plain">);</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p>В данном случае ограничение внешнего ключа CustomerId называется "FK_Orders_To_Customers".</p>
+    <h3>ON DELETE и ON UPDATE</h3>
+    <p>С помощью выражений <span class="b">ON DELETE</span> и <span class="b">ON UPDATE</span> можно установить
+        действия, которые выполняться соответственно
+        при удалении и изменении связанной строки из главной таблицы. И для определения действия мы можем использовать
+        следующие опции:</p>
+
+    <ul>
+        <li>
+            <p><span class="b">CASCADE</span>: автоматически удаляет или изменяет строки из зависимой таблицы при
+                удалении или изменении связанных строк в главной таблице.</p>
+        </li>
+        <li>
+            <p><span class="b">NO ACTION</span>: предотвращает какие-либо действия в зависимой таблице при удалении или
+                изменении связанных строк в главной таблице.
+                То есть фактически какие-либо действия отсутствуют.</p>
+        </li>
+        <li>
+            <p><span class="b">SET NULL</span>: при удалении связанной строки из главной таблицы устанавливает для
+                столбца внешнего ключа значение NULL.</p>
+        </li>
+        <li>
+            <p><span class="b">SET DEFAULT</span>: при удалении связанной строки из главной таблицы устанавливает для
+                столбца внешнего ключа значение по умолчанию, которое задается с помощью атрибуты DEFAULT. Если для
+                столбца не задано значение по умолчанию, то в качестве него применяется значение NULL.</p>
+        </li>
+    </ul>
+    <h3>Каскадное удаление</h3>
+    <p>По умолчанию, если на строку из главной таблицы по внешнему ключу ссылается какая-либо строка из зависимой
+        таблицы,
+        то мы не сможем удалить эту строку из главной таблицы. Вначале нам необходимо будет удалить все связанные строки
+        из зависимой таблицы. И
+        если при удалении строки из главной таблицы необходимо, чтобы были удалены все связанные строки из зависимой
+        таблицы, то применяется каскадное удаление, то есть
+        опция <span class="b">CASCADE</span>:</p>
+
+    <div>
+        <div id="highlighter_702024" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Orders</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CustomerId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CreatedAt </code><code class="sql keyword">Date</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">FOREIGN</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">(CustomerId) </code><code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">Customers (Id) </code><code class="sql keyword">ON</code>
+                                    <code class="sql keyword">DELETE</code> <code class="sql keyword">CASCADE</code>
+                                </div>
+                                <div class="line number7 index6 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p>Аналогично работает выражение <span class="b">ON UPDATE CASCADE</span>. При изменении значения первичного ключа
+        автоматически изменится значение связанного с ним внешнего ключа.
+        Но так как первичные ключи, как правило, изменяются очень редко, да и с принципе не рекомендуется использовать в
+        качестве первичных ключей столбцы с изменяемыми значениями,
+        то на практике выражение <span class="b">ON UPDATE</span> используется редко.</p>
+    <h3>Установка NULL</h3>
+    <p>При установки для внешнего ключа опции <span class="b">SET NULL</span> необходимо, чтобы столбец внешнего ключа
+        допускал значение NULL:</p>
+    <div>
+        <div id="highlighter_904157" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Orders</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CustomerId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CreatedAt </code><code class="sql keyword">Date</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">FOREIGN</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">(CustomerId) </code><code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">Customers (Id) </code><code class="sql keyword">ON</code>
+                                    <code class="sql keyword">DELETE</code> <code class="sql keyword">SET</code> <code
+                                        class="sql color1">NULL</code></div>
+                                <div class="line number7 index6 alt2"><code class="sql plain">);</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3>Установка значения по умолчанию</h3>
+    <div>
+        <div id="highlighter_978302" class="syntaxhighlighter  sql">
+            <div class="toolbar"><span>  </span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                        </td>
+                        <td class="code">
+                            <div class="container">
+                                <div class="line number1 index0 alt2"><code class="sql keyword">CREATE</code> <code
+                                        class="sql keyword">TABLE</code> <code class="sql plain">Orders</code></div>
+                                <div class="line number2 index1 alt1"><code class="sql plain">(</code></div>
+                                <div class="line number3 index2 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">Id </code><code class="sql keyword">INT</code> <code
+                                        class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">IDENTITY,</code></div>
+                                <div class="line number4 index3 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CustomerId </code><code class="sql keyword">INT</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number5 index4 alt2"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql plain">CreatedAt </code><code class="sql keyword">Date</code><code
+                                        class="sql plain">,</code></div>
+                                <div class="line number6 index5 alt1"><code
+                                        class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                        class="sql keyword">FOREIGN</code> <code class="sql keyword">KEY</code> <code
+                                        class="sql plain">(CustomerId) </code><code
+                                        class="sql keyword">REFERENCES</code> <code
+                                        class="sql plain">Customers (Id) </code><code class="sql keyword">ON</code>
+                                    <code class="sql keyword">DELETE</code> <code class="sql keyword">SET</code> <code
+                                        class="sql keyword">DEFAULT</code></div>
+                                <div class="line number7 index6 alt2"><code class="sql plain">)</code></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
