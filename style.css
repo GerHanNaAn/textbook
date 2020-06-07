@@ -5,6 +5,31 @@ body{
 	min-height: 800px;
 	
 }
+#upButton {
+	
+	height: 50px;
+	position: fixed;
+	bottom:50px;
+	right:50px;
+}
+.topbutton {
+	width: 50px;
+	height: 50px;
+	
+	text-align:center;
+	padding:0;
+	position:fixed;
+	bottom:50px;
+	right:50px;
+	cursor:pointer;
+	color:#333;
+	font-family:verdana;
+	font-size:12px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	}
 
 .head{
 	background-color: #e2dbdb;
@@ -17,24 +42,33 @@ body{
 	display: inline-flex;
 	min-width: 800px;
 }
+
+/* main {
+	padding-bottom: 56.25%;
+	
+
+} */
+
 #main{
+
 	border-radius: 5px;
 	background: linear-gradient( 90deg, rgba(167, 200, 241, 0.26), rgba(51, 109, 185, 0.26));
-			-webkit-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
--moz-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
+	-webkit-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
+	-moz-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
+	box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
 
-	/* height: 100%; */
+	height: 100%;
 	left: 120px;
-	width: 800px;
+	width: 710px;
 	background-color: #e2dbdb;
 	position: absolute;
 	margin: 100px;
 	display: block;
 }
+
 .container{
 	height: auto;
-	margin: 0px 5px;
+	margin: 15px 5px;
 }
 
 #testCreat,
@@ -42,18 +76,18 @@ box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba
 #authorization,
 #theory,
 #mySQL,
-#msSQL{
+#msSQL {
 	border-radius: 3px;
-	font-size: 13px;
+	font-size: 12px;
     text-transform: uppercase;
     font-weight: bold;
     color: #ccc;
 	line-height: 2em;
 	box-shadow: 1px 2px 3px #888;
-	line-height: 80px;
+	line-height: 50px;
 	vertical-align: middle;
-	height: 78px;
-	width: 110px;
+	height: 50px;
+	width: 100px;
 	position: static;
 	background: #cccccc;
 	background: rgb(4, 52, 65);
@@ -110,6 +144,8 @@ box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba
 }
 
 .footer{
+	font-size: 12px;
+
 	position: absolute;
 	width: 198px;
 	padding-top: 10px;
@@ -124,7 +160,37 @@ box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba
 }
 
 /*MEDIA*/
+@media screen and (min-width: 0px){
+	#main {
+		width: 60vw;
+	}
+}	
+@media screen and (min-width: 750px){
+	#main {
+		width: 70vw;
+	}
+}
+@media screen and (min-width: 950px){
+	#main {
+		width: 710px;
+	}
+}
 
+@media screen and (min-width: 1050px){
+	#main {
+		width: 800px;
+	}
+}
+@media screen and (min-width: 1150px){
+	#main {
+		width: 80vw;
+	}
+}	
+@media screen and (min-width: 1750px){
+	#main {
+		width: 85vw;
+	}
+}	
 /*
 @media screen and (max-width: 1152px){
 	.menu{

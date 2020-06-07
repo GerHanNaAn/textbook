@@ -1,36 +1,193 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img{
+        img {
             max-width: 700px;
         }
+        .code {
+            background-color: rgb(224, 214, 214);
+        }
+        .gutter {
+            background-color: rgb(184, 218, 219);
+        }
+        
+        h2 {
+            color: rgb(45, 54, 102);
+            text-align: center;
+        }
+        p {
+            text-indent: 7px; 
+            font-family: Georgia;
+       }
     </style>
 </head>
+
 <body>
     <div class="articleText" id="articleText">
         <h2>Обновление данных. Команда UPDATE</h2>
-        <p>Команда <span class="b">UPDATE</span> применяется для обновления уже имеющихся строк. Она имеет следующий формальный синтаксис:</p>
-        <div><div id="highlighter_7577" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code class="sql plain">имя_таблицы</code></div><div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code class="sql plain">столбец1 = значение1, столбец2 = значение2, ... столбецN = значениеN</code></div><div class="line number3 index2 alt2"><code class="sql plain">[</code><code class="sql keyword">WHERE</code> <code class="sql plain">условие_обновления]</code></div></div></td></tr></tbody></table></div></div>
+        <p>Команда <span class="b">UPDATE</span> применяется для обновления уже имеющихся строк. Она имеет следующий
+            формальный синтаксис:</p>
+        <div>
+            <div id="highlighter_7577" class="syntaxhighlighter  sql">
+                <div class="toolbar"><span> </span></div>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="gutter">
+                                <div class="line number1 index0 alt2">1</div>
+                                <div class="line number2 index1 alt1">2</div>
+                                <div class="line number3 index2 alt2">3</div>
+                            </td>
+                            <td class="code">
+                                <div class="container">
+                                    <div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code
+                                            class="sql plain">имя_таблицы</code></div>
+                                    <div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code
+                                            class="sql plain">столбец1 = значение1, столбец2 = значение2, ... столбецN = значениеN</code>
+                                    </div>
+                                    <div class="line number3 index2 alt2"><code class="sql plain">[</code><code
+                                            class="sql keyword">WHERE</code> <code
+                                            class="sql plain">условие_обновления]</code></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <p>Например, увеличим у всех товаров цену на 3000:</p>
-        <div><div id="highlighter_408697" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code class="sql plain">Price = Price + 3000;</code></div></div></td></tr></tbody></table></div></div>
+        <div>
+            <div id="highlighter_408697" class="syntaxhighlighter  sql">
+                <div class="toolbar"><span> </span></div>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="gutter">
+                                <div class="line number1 index0 alt2">1</div>
+                                <div class="line number2 index1 alt1">2</div>
+                            </td>
+                            <td class="code">
+                                <div class="container">
+                                    <div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code
+                                            class="sql plain">Products</code></div>
+                                    <div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code
+                                            class="sql plain">Price = Price + 3000;</code></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <p>Однако при выполнении данного запроса в MySQL Workbench мы можем столкнуться с ошибкой:</p>
         <img src="pics/3.12.png" alt="Safe UPDATE mode in MySQL Workbench">
-        <p>Ошибка говорит о том, что мы находимся в безопасном режиме. И чтобы его отключить, в MySQL Workbench надо перейти в меню <span class="b">Edit -&gt; Preferences</span> 
-        и в открывшемся окне перейти к пункту <span class="b">SQL Editor</span>:</p>
+        <p>Ошибка говорит о том, что мы находимся в безопасном режиме. И чтобы его отключить, в MySQL Workbench надо
+            перейти в меню <span class="b">Edit -&gt; Preferences</span>
+            и в открывшемся окне перейти к пункту <span class="b">SQL Editor</span>:</p>
         <img src="pics/3.13.png" alt="Disable safe mode in MySQL Workbench">
-        <p>В открывшейся вкладке в самом низу надо снять флажок с поля "Safe Updates (reject UPDATEs and DELETEs with no restrictions)" и затем сохранить изменения, 
-        нажав на кнопку OK. После этого надо переподключиться к серверу.</p>
+        <p>В открывшейся вкладке в самом низу надо снять флажок с поля "Safe Updates (reject UPDATEs and DELETEs with no
+            restrictions)" и затем сохранить изменения,
+            нажав на кнопку OK. После этого надо переподключиться к серверу.</p>
         <p>Используем выражение WHERE и изменим название производителя с "Samsung" на "Samsung Inc.":</p>
-        <div><div id="highlighter_102043" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung Inc.'</code></div><div class="line number3 index2 alt2"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung'</code><code class="sql plain">;</code></div></div></td></tr></tbody></table></div></div>
+        <div>
+            <div id="highlighter_102043" class="syntaxhighlighter  sql">
+                <div class="toolbar"><span> </span></div>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="gutter">
+                                <div class="line number1 index0 alt2">1</div>
+                                <div class="line number2 index1 alt1">2</div>
+                                <div class="line number3 index2 alt2">3</div>
+                            </td>
+                            <td class="code">
+                                <div class="container">
+                                    <div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code
+                                            class="sql plain">Products</code></div>
+                                    <div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code
+                                            class="sql plain">Manufacturer = </code><code
+                                            class="sql string">'Samsung Inc.'</code></div>
+                                    <div class="line number3 index2 alt2"><code class="sql keyword">WHERE</code> <code
+                                            class="sql plain">Manufacturer = </code><code
+                                            class="sql string">'Samsung'</code><code class="sql plain">;</code></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <p>Также можно обновлять сразу несколько столбцов:</p>
-        <div><div id="highlighter_227807" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung'</code><code class="sql plain">,</code></div><div class="line number3 index2 alt2"><code class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="sql plain">ProductCount = ProductCount + 3</code></div><div class="line number4 index3 alt1"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Samsung Inc.'</code><code class="sql plain">;</code></div></div></td></tr></tbody></table></div></div>
-        <p>При обновлении вместо конкретных значений и выражений мы можем использовать ключевые слова <span class="b">DEFAULT</span> и <span class="b">NULL</span> 
-        для установки соответственно значения по умолчанию или NULL:</p>
-        <div><div id="highlighter_653537" class="syntaxhighlighter  sql"><div class="toolbar"><span> </span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code class="sql plain">Products</code></div><div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code class="sql plain">ProductCount= </code><code class="sql keyword">DEFAULT</code></div><div class="line number3 index2 alt2"><code class="sql keyword">WHERE</code> <code class="sql plain">Manufacturer = </code><code class="sql string">'Huawei'</code><code class="sql plain">;</code></div></div></td></tr></tbody></table></div></div>
+        <div>
+            <div id="highlighter_227807" class="syntaxhighlighter  sql">
+                <div class="toolbar"><span> </span></div>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="gutter">
+                                <div class="line number1 index0 alt2">1</div>
+                                <div class="line number2 index1 alt1">2</div>
+                                <div class="line number3 index2 alt2">3</div>
+                                <div class="line number4 index3 alt1">4</div>
+                            </td>
+                            <td class="code">
+                                <div class="container">
+                                    <div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code
+                                            class="sql plain">Products</code></div>
+                                    <div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code
+                                            class="sql plain">Manufacturer = </code><code
+                                            class="sql string">'Samsung'</code><code class="sql plain">,</code></div>
+                                    <div class="line number3 index2 alt2"><code
+                                            class="sql spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                            class="sql plain">ProductCount = ProductCount + 3</code></div>
+                                    <div class="line number4 index3 alt1"><code class="sql keyword">WHERE</code> <code
+                                            class="sql plain">Manufacturer = </code><code
+                                            class="sql string">'Samsung Inc.'</code><code class="sql plain">;</code>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p>При обновлении вместо конкретных значений и выражений мы можем использовать ключевые слова <span
+                class="b">DEFAULT</span> и <span class="b">NULL</span>
+            для установки соответственно значения по умолчанию или NULL:</p>
+        <div>
+            <div id="highlighter_653537" class="syntaxhighlighter  sql">
+                <div class="toolbar"><span> </span></div>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="gutter">
+                                <div class="line number1 index0 alt2">1</div>
+                                <div class="line number2 index1 alt1">2</div>
+                                <div class="line number3 index2 alt2">3</div>
+                            </td>
+                            <td class="code">
+                                <div class="container">
+                                    <div class="line number1 index0 alt2"><code class="sql keyword">UPDATE</code> <code
+                                            class="sql plain">Products</code></div>
+                                    <div class="line number2 index1 alt1"><code class="sql keyword">SET</code> <code
+                                            class="sql plain">ProductCount= </code><code
+                                            class="sql keyword">DEFAULT</code></div>
+                                    <div class="line number3 index2 alt2"><code class="sql keyword">WHERE</code> <code
+                                            class="sql plain">Manufacturer = </code><code
+                                            class="sql string">'Huawei'</code><code class="sql plain">;</code></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 </body>
+
 </html>
