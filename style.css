@@ -53,9 +53,9 @@ body{
 
 	border-radius: 5px;
 	background: linear-gradient( 90deg, rgba(167, 200, 241, 0.26), rgba(51, 109, 185, 0.26));
-	-webkit-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
-	-moz-box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
-	box-shadow: -12px -12px 9px -1px rgba(135,169,199,0.83), 12px 12px 9px -1px rgba(135,169,199,0.83);
+	-webkit-box-shadow: -12px -12px 9px -1px rgba(67, 67, 75, 0.83), 12px 12px 9px -1px rgba(67, 67, 75, 0.83);
+	-moz-box-shadow: -12px -12px 9px -1px rgba(67, 67, 75, 0.83), 12px 12px 9px -1px rgba(67, 67, 75, 0.83);
+	box-shadow: -12px -12px 9px -1px rgba(67, 67, 75, 0.83), 12px 12px 9px -1px rgba(67, 67, 75, 0.83);
 
 	height: 100%;
 	left: 120px;
@@ -76,7 +76,9 @@ body{
 #authorization,
 #theory,
 #mySQL,
-#msSQL {
+#msSQL,
+/* Тут добавил #userCreate   */
+#userCreate {
 	border-radius: 3px;
 	font-size: 12px;
     text-transform: uppercase;
@@ -92,13 +94,28 @@ body{
 	background: #cccccc;
 	background: rgb(4, 52, 65);
 }
-#testCreat{
+/* Тут добавил #userCreate   */
+#userCreate {
 	position: absolute;
-	right: 140px;
+	right: 340px;
+	line-height: 25px;
+	width: 110px;
+	/* Тут можно скрыть элемент */
+	/* display: none; */
+
+}
+#testCreat{
+	top: 15px;
+	position: absolute;
+	right: 120px;
+	/* Тут можно скрыть элемент */
+	/* display: none; */
 }
 #test{
 	position: absolute;
-	right: 260px;
+	right: 230px;
+	/* Тут можно скрыть элемент */
+	/* display: none; */
 }
 
 #theory{
@@ -107,7 +124,9 @@ body{
 
 #authorization{
 	position: absolute;
-	right: 20px;
+	right: 10px;
+	/* Тут можно скрыть элемент */
+	/* display: none; */
 }
 
 .section{

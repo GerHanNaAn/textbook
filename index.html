@@ -12,16 +12,21 @@
 	<header>
 		<div class="head" style="background-image: url(asfalt-dark.png);">
 			<div class='container'>
-				<a class="section" href="menu/frameMenuTheory.html">
+				<a class="section" href="menu/frameMenuTheory.html" target="menuGGG">
 					<div id='theory'>Теория</div>
 				</a></div>
 			<div class='container'>
-				<a class="section" href="menu/frameMenuMySQL.html">
+				<a class="section" href="menu/frameMenuMySQL.html" target="menuGGG">
 					<div id='mySQL'>MySQL</div>
 				</a></div>
 			<div class='container'>
-				<a class="section" href="menu/frameMenuMSSQL.html">
+				<a class="section" href="menu/frameMenuMSSQL.html" target="menuGGG">
 					<div id='msSQL'>MS SQL</div>
+				</a>
+			</div>
+			<div class='container'>
+				<a class="section" href="">
+					<div id='userCreate'>Создать пользователя</div>
 				</a>
 			</div>
 			<div class='container'>
@@ -42,8 +47,9 @@
 		</div>
 	</header>
 	<div id="menuGGG">
-		<iframe src='menu/frameMenuMSSQL.html' id="frameMenu" frameborder='0'
-			onload="this.style.height=this.contentDocument.body.scrollHeight +'px';"></iframe>
+		<iframe src='menu/frameMenuTheory.html' id="frameMenu" frameborder='0' name="menuGGG"
+			onload="this.style.height=this.contentDocument.body.scrollHeight +'px';">
+		</iframe>
 
 		<div class="footer">Copyright © 2020<br>
 			"Основы проектирования баз данных"<br>
@@ -56,8 +62,9 @@
 	<main>
 
 		<iframe 
- 		src='MSSQL/Что такое SQL Server и T-SQL.html' id="main" name="mainFrame" frameborder='0'
-			onload="this.style.height=this.contentDocument.body.scrollHeight + 40 +'px';"></iframe> -->
+ 		src='Теория/База данных.html' id="main" name="mainFrame" frameborder='0'
+			onload="this.style.height=this.contentDocument.body.scrollHeight + 40 +'px';">
+		</iframe> 
 
 	</main>
 	<a href="#" title="Вернуться к началу" class="topbutton"><img id="upButton" src="up.png"></a>
