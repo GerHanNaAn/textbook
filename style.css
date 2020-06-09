@@ -45,7 +45,7 @@ body{
 
 
 #main{
-	top: 45px;
+	top: 20px;
 	border-radius: 5px;
 	background: linear-gradient( 90deg, rgba(167, 200, 241, 0.26), rgba(51, 109, 185, 0.26));
 	-webkit-box-shadow: -12px -12px 9px -1px rgba(67, 67, 75, 0.83), 12px 12px 9px -1px rgba(67, 67, 75, 0.83);
@@ -65,18 +65,18 @@ body{
     text-transform: uppercase;
     font-weight: bold;
 	vertical-align: middle;
-	top: 73px;
+	top: 70px;
 	border-radius: 3px;
 	position: absolute;
 	background: rgb(52, 100, 113);
 	left: 215px;
-	height: 50px;
+	height: 32px;
 	/* margin-right: 100px; */
 	padding: 3px 0;
 	color: #ccc;
 	text-align: center;
 	line-height: 17px;
-
+	width: 100%;
 	/* background-image: url(asfalt-dark.png); */
 }
 .container{
@@ -195,11 +195,15 @@ body{
 @media screen and (min-width: 0px){
 	#main, #logo {
 		width: 60vw;
+		font-size: 1.6vw;
+
 	}
 }	
 @media screen and (min-width: 750px){
 	#main, #logo {
 		width: 70vw;
+		font-size: 12px;
+
 	}
 }
 @media screen and (min-width: 950px){
