@@ -33,7 +33,7 @@ body{
 
 .head{
 	background-color: #e2dbdb;
-	height: 80px;
+	height: 70px;
 	width: 100%;
 	margin: 0;
 	box-shadow: 0 1px 3px 0 #888;
@@ -43,14 +43,9 @@ body{
 	min-width: 800px;
 }
 
-/* main {
-	padding-bottom: 56.25%;
-	
-
-} */
 
 #main{
-
+	top: 45px;
 	border-radius: 5px;
 	background: linear-gradient( 90deg, rgba(167, 200, 241, 0.26), rgba(51, 109, 185, 0.26));
 	-webkit-box-shadow: -12px -12px 9px -1px rgba(67, 67, 75, 0.83), 12px 12px 9px -1px rgba(67, 67, 75, 0.83);
@@ -65,7 +60,25 @@ body{
 	margin: 100px;
 	display: block;
 }
+#logo {
+	font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+	vertical-align: middle;
+	top: 73px;
+	border-radius: 3px;
+	position: absolute;
+	background: rgb(52, 100, 113);
+	left: 215px;
+	height: 50px;
+	/* margin-right: 100px; */
+	padding: 3px 0;
+	color: #ccc;
+	text-align: center;
+	line-height: 17px;
 
+	/* background-image: url(asfalt-dark.png); */
+}
 .container{
 	height: auto;
 	margin: 15px 5px;
@@ -90,11 +103,10 @@ body{
 	vertical-align: middle;
 	height: 50px;
 	width: 100px;
-	position: static;
-	background: #cccccc;
 	background: rgb(4, 52, 65);
 }
 /* Тут добавил #userCreate   */
+
 #userCreate {
 	position: absolute;
 	right: 340px;
@@ -119,6 +131,7 @@ body{
 }
 
 #theory{
+	top: 15px;
 	left: 20px;
 }
 
@@ -139,7 +152,7 @@ body{
 #menuGGG{
 	display: grid;
 	position: fixed;
-	top: 82px;
+	top: 70px;
 	height: 100%;
 	width: 205px;
 	background: rgb(4, 52, 65);
@@ -180,33 +193,33 @@ body{
 
 /*MEDIA*/
 @media screen and (min-width: 0px){
-	#main {
+	#main, #logo {
 		width: 60vw;
 	}
 }	
 @media screen and (min-width: 750px){
-	#main {
+	#main, #logo {
 		width: 70vw;
 	}
 }
 @media screen and (min-width: 950px){
-	#main {
+	#main, #logo {
 		width: 710px;
 	}
 }
 
 @media screen and (min-width: 1050px){
-	#main {
+	#main, #logo {
 		width: 800px;
 	}
 }
 @media screen and (min-width: 1150px){
-	#main {
+	#main, #logo {
 		width: 80vw;
 	}
 }	
 @media screen and (min-width: 1750px){
-	#main {
+	#main, #logo {
 		width: 85vw;
 	}
 }	
